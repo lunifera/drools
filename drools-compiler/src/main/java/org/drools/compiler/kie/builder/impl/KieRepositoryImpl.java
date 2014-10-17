@@ -196,8 +196,8 @@ public class KieRepositoryImpl
                     }
                     urlPath = urlPath + KieModuleModelImpl.KMODULE_JAR_PATH;
 
-                } else {
-                    urlPath = "jar:" + urlPath + "!/" + KieModuleModelImpl.KMODULE_JAR_PATH;
+//                } else {
+//                    urlPath = "jar:" + urlPath + "!/" + KieModuleModelImpl.KMODULE_JAR_PATH;
                 }
                 kModule = ClasspathKieProject.fetchKModule(new URL(urlPath));
                 log.debug("fetched KieModule from resource :" + resource);
