@@ -19,8 +19,15 @@
 		<groupId>org.drools</groupId>
 		<artifactId>drools-multiproject</artifactId>
 		<version>6.1.1-SNAPSHOT</version>
-		
+
 	</parent>
+
+	<properties>
+		<tychoExtrasVersion>0.19.0</tychoExtrasVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+
 
 	<artifactId>org.lunifera.drools.feature.compiler</artifactId>
 	<packaging>eclipse-feature</packaging>
@@ -59,104 +66,104 @@
 					</execution>
 				</executions>
 			</plugin>
-		
-		<plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-maven-plugin</artifactId>
-          <version>0.21.0</version>
-          <extensions>true</extensions>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-compiler-plugin</artifactId>
-          <version>0.21.0</version>
-          <configuration>
-            <compilerVersion>1.6</compilerVersion>
-            <encoding>UTF-8</encoding>
-            <source>1.6</source>
-            <target>1.6</target>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>target-platform-configuration</artifactId>
-          <version>0.21.0</version>
-          <configuration>
-            <resolver>p2</resolver>
-            <pomDependencies>consider</pomDependencies>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-source-plugin</artifactId>
-          <version>0.21.0</version>
-          <executions>
-            <execution>
-              <id>plugin-source</id>
-              <goals>
-                <goal>plugin-source</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-surefire-plugin</artifactId>
-          <version>0.21.0</version>
-          <configuration>
-            <includes>
-              <include>**/*Tests.java</include>
-            </includes>
-            <showEclipseLog>true</showEclipseLog>
-            <useUIHarness>false</useUIHarness>
-            <useUIThread>false</useUIThread>
-            <failIfNoTests>false</failIfNoTests>
-            <argLine>${jacoco.agent.it.arg}</argLine>
-            <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
-          </configuration>
-        </plugin>
-        <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-packaging-plugin</artifactId>
-        <version>0.21.0</version>
-        <executions>
-          <execution>
-            <id>default-package-feature</id>
-            <phase>package</phase>
-            <goals>
-              <goal>package-feature</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-build-qualifier-aggregator</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>build-qualifier-aggregator</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-validate-id</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>validate-id</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-validate-version</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>validate-version</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>0.21.0</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>0.21.0</version>
+				<configuration>
+					<compilerVersion>1.6</compilerVersion>
+					<encoding>UTF-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>0.21.0</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<pomDependencies>consider</pomDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>0.21.0</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>0.21.0</version>
+				<configuration>
+					<includes>
+						<include>**/*Tests.java</include>
+					</includes>
+					<showEclipseLog>true</showEclipseLog>
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<failIfNoTests>false</failIfNoTests>
+					<argLine>${jacoco.agent.it.arg}</argLine>
+					<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>0.21.0</version>
+				<executions>
+					<execution>
+						<id>default-package-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>package-feature</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-build-qualifier-aggregator</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>build-qualifier-aggregator</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-validate-id</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>validate-id</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-validate-version</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>validate-version</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-<!-- 	<dependencies> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.lunifera.dsl</groupId> -->
-<!-- 			<artifactId>org.lunifera.dsl.entity.xtext.ui</artifactId> -->
-<!-- 			<version>${project.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 	</dependencies> -->
+	<!-- <dependencies> -->
+	<!-- <dependency> -->
+	<!-- <groupId>org.lunifera.dsl</groupId> -->
+	<!-- <artifactId>org.lunifera.dsl.entity.xtext.ui</artifactId> -->
+	<!-- <version>${project.version}</version> -->
+	<!-- </dependency> -->
+	<!-- </dependencies> -->
 </project>
