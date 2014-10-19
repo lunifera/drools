@@ -39,6 +39,15 @@
 <!-- 			</snapshots> -->
 <!-- 		</repository> -->
 	</repositories>
+	
+	<url>${distribution.site.url}</url>
+	<distributionManagement>
+		<site>
+			<id>gh-pages</id>
+			<name>Lunifera GitHub Pages</name>
+			<url>${distribution.site.url}</url>
+		</site>
+	</distributionManagement>
 
 	<scm>
 		<connection>scm:git:git@github.com:droolsjbpm/drools.git</connection>
@@ -65,20 +74,21 @@
 		<module>drools-examples-cdi</module>
 		<module>drools-workbench-models</module>
 		<module>knowledge-api-legacy5-adapter</module>
+		<module>org.lunifera.drools.p2</module>
 	</modules>
 
 	<profiles>
-		<profile>
-			<id>fullProfile</id>
-			<activation>
-				<property>
-					<name>full</name>
-				</property>
-			</activation>
-			<modules>
-				<module>drools-distribution</module>
-			</modules>
-		</profile>
+<!-- 		<profile> -->
+<!-- 			<id>fullProfile</id> -->
+<!-- 			<activation> -->
+<!-- 				<property> -->
+<!-- 					<name>full</name> -->
+<!-- 				</property> -->
+<!-- 			</activation> -->
+<!-- 			<modules> -->
+<!-- 				<module>drools-distribution</module> -->
+<!-- 			</modules> -->
+<!-- 		</profile> -->
 
 		<profile>
 			<id>build.p2</id>
