@@ -24,24 +24,30 @@
 	<repositories>
 		<!-- Bootstrap repository to locate the parent pom when the parent pom 
 			has not been build locally. -->
-<!-- 		<repository> -->
-<!-- 			<id>jboss-public-repository-group</id> -->
-<!-- 			<name>JBoss Public Repository Group</name> -->
-<!-- 			<url>http://repository.jboss.org/nexus/content/groups/public/</url> -->
-<!-- 			<layout>default</layout> -->
-<!-- 			<releases> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 				<updatePolicy>never</updatePolicy> -->
-<!-- 			</releases> -->
-<!-- 			<snapshots> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 				<updatePolicy>daily</updatePolicy> -->
-<!-- 			</snapshots> -->
-<!-- 		</repository> -->
+		<!-- <repository> -->
+		<!-- <id>jboss-public-repository-group</id> -->
+		<!-- <name>JBoss Public Repository Group</name> -->
+		<!-- <url>http://repository.jboss.org/nexus/content/groups/public/</url> -->
+		<!-- <layout>default</layout> -->
+		<!-- <releases> -->
+		<!-- <enabled>true</enabled> -->
+		<!-- <updatePolicy>never</updatePolicy> -->
+		<!-- </releases> -->
+		<!-- <snapshots> -->
+		<!-- <enabled>true</enabled> -->
+		<!-- <updatePolicy>daily</updatePolicy> -->
+		<!-- </snapshots> -->
+		<!-- </repository> -->
 	</repositories>
-	
+
 	<url>${distribution.site.url}</url>
 	<distributionManagement>
+		<repository>
+			<id>lunifera-update-site</id>
+			<name>Lunifera Update Site</name>
+			<url>http://lun.lunifera.org/downloads/p2/lunifera/luna/latest/</url>
+		</repository>
+
 		<site>
 			<id>gh-pages</id>
 			<name>Lunifera GitHub Pages</name>
@@ -78,17 +84,17 @@
 	</modules>
 
 	<profiles>
-<!-- 		<profile> -->
-<!-- 			<id>fullProfile</id> -->
-<!-- 			<activation> -->
-<!-- 				<property> -->
-<!-- 					<name>full</name> -->
-<!-- 				</property> -->
-<!-- 			</activation> -->
-<!-- 			<modules> -->
-<!-- 				<module>drools-distribution</module> -->
-<!-- 			</modules> -->
-<!-- 		</profile> -->
+		<!-- <profile> -->
+		<!-- <id>fullProfile</id> -->
+		<!-- <activation> -->
+		<!-- <property> -->
+		<!-- <name>full</name> -->
+		<!-- </property> -->
+		<!-- </activation> -->
+		<!-- <modules> -->
+		<!-- <module>drools-distribution</module> -->
+		<!-- </modules> -->
+		<!-- </profile> -->
 
 		<profile>
 			<id>build.p2</id>
