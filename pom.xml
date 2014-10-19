@@ -43,14 +43,14 @@
 	<url>${distribution.site.url}</url>
 	<distributionManagement>
 		<repository>
-			<id>lunifera-update-site</id>
-			<name>Lunifera Update Site</name>
-			<url>http://lun.lunifera.org/downloads/p2/lunifera/luna/latest/</url>
+			<id>lunifera-nexus-release</id>
+			<name>Nexus Release Repository</name>
+			<url>http://maven.lunifera.org:8086/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
-			<id>lunifera-update-site</id>
-			<name>Lunifera Update Site</name>
-			<url>http://lun.lunifera.org/downloads/p2/lunifera/luna/latest/</url>
+			<id>lunifera-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>http://maven.lunifera.org:8086/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 		<site>
 			<id>gh-pages</id>
