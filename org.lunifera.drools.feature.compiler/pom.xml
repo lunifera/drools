@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--#======================================================================= -->
+<!--# Copyright (c) 2011 - 2014, Lunifera GmbH (Gross Enzersdorf), -->
+<!--# Loetz KG (Heidelberg) -->
+<!--# All rights reserved. This program and the accompanying materials -->
+<!--# are made available under the terms of the Eclipse Public License v1.0 -->
+<!--# which accompanies this distribution, and is available at -->
+<!--# http://www.eclipse.org/legal/epl-v10.html -->
+<!--# -->
+<!--# Contributors: -->
+<!--# Florian Pirchner - Initial implementation -->
+<!--#======================================================================= -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.drools</groupId>
+		<artifactId>drools-multiproject</artifactId>
+		<version>6.1.1-SNAPSHOT</version>
+		
+	</parent>
+
+	<artifactId>org.lunifera.drools.feature.compiler</artifactId>
+	<packaging>eclipse-feature</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tychoExtrasVersion}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<labelSuffix> (source)</labelSuffix>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- workaround while bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=398250 
+					is not fixed -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>attached-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		
+		<plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-maven-plugin</artifactId>
+          <version>0.21.0</version>
+          <extensions>true</extensions>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
+          <version>0.21.0</version>
+          <configuration>
+            <compilerVersion>1.6</compilerVersion>
+            <encoding>UTF-8</encoding>
+            <source>1.6</source>
+            <target>1.6</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>target-platform-configuration</artifactId>
+          <version>0.21.0</version>
+          <configuration>
+            <resolver>p2</resolver>
+            <pomDependencies>consider</pomDependencies>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-source-plugin</artifactId>
+          <version>0.21.0</version>
+          <executions>
+            <execution>
+              <id>plugin-source</id>
+              <goals>
+                <goal>plugin-source</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-surefire-plugin</artifactId>
+          <version>0.21.0</version>
+          <configuration>
+            <includes>
+              <include>**/*Tests.java</include>
+            </includes>
+            <showEclipseLog>true</showEclipseLog>
+            <useUIHarness>false</useUIHarness>
+            <useUIThread>false</useUIThread>
+            <failIfNoTests>false</failIfNoTests>
+            <argLine>${jacoco.agent.it.arg}</argLine>
+            <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+          </configuration>
+        </plugin>
+        <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
+        <version>0.21.0</version>
+        <executions>
+          <execution>
+            <id>default-package-feature</id>
+            <phase>package</phase>
+            <goals>
+              <goal>package-feature</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-build-qualifier-aggregator</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>build-qualifier-aggregator</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-validate-id</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>validate-id</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-validate-version</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>validate-version</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+		</plugins>
+	</build>
+<!-- 	<dependencies> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.lunifera.dsl</groupId> -->
+<!-- 			<artifactId>org.lunifera.dsl.entity.xtext.ui</artifactId> -->
+<!-- 			<version>${project.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 	</dependencies> -->
+</project>

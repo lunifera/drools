@@ -84,6 +84,7 @@
 		<module>drools-examples-cdi</module>
 		<module>drools-workbench-models</module>
 		<module>knowledge-api-legacy5-adapter</module>
+		<module>org.lunifera.drools.feature.compiler</module>
 		<module>org.lunifera.drools.p2</module>
 	</modules>
 
